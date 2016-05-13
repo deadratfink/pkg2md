@@ -1,0 +1,90 @@
+{
+    "name": "pkg2md",
+    "description": "This modules creates a Markdown presentation from a package.json on CLI.",
+    "version": "0.9.0",
+    "homepage": "https://github.com/deadratfink/pkg2md",
+    "author": {
+        "name": "Jens Krefeldt",
+        "email": "j.krefeldt@gmail.com",
+        "url": "https://github.com/deadratfink"
+    },
+    "contributors": [],
+    "license": "SEE LICENSE IN [LICENSE.md](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/deadratfink/pkg2md.git"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "bugs": "https://github.com/deadratfink/pkg2md/issues",
+    "private": false,
+    "config": {
+        "test": {
+            "mocha": {
+                "unit": {
+                    "reporter": "spec"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "docs": "cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md && cat docs/USAGE.md >> README.md && cat docs/CONTRIBUTING.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2",
+        "wiki": "jsdoc2md lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.0.md' && cat CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3",
+        "test": "istanbul cover _mocha --report lcovonly -- -R $npm_package_config_test_mocha_unit_reporter ./test/test*.js"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "dependencies": {
+        "ajv": "^4.0.4",
+        "bluebird": "^3.3.3",
+        "cli": "^0.11.1",
+        "cwd": "^0.9.1",
+        "github-url-to-object": "^2.2.1",
+        "is-stream": "^1.0.1",
+        "js-beautify": "^1.6.2",
+        "json-stringify-safe": "^5.0.1",
+        "mkdirp-then": "^1.2.0",
+        "package.json-schema": "^0.2.0",
+        "serialize-js": "^1.1.0",
+        "url-join": "1.1.0"
+    },
+    "devDependencies": {
+        "codeclimate-test-reporter": "^0.3.1",
+        "codecov": "^1.0.1",
+        "coveralls": "^2.11.9",
+        "doctoc": "^1.0.0",
+        "fs-extra": "^0.26.7",
+        "istanbul": "^0.4.2",
+        "jsdoc-parse": "^1.2.7",
+        "jsdoc-to-markdown": "^1.3.3",
+        "mocha": "^2.3.3",
+        "mocha-lcov-reporter": "^1.2.0",
+        "object-path": "^0.9.2",
+        "package-json-to-readme": "^1.5.0",
+        "winston": "^2.2.0"
+    },
+    "preferGlobal": true,
+    "bin": {
+        "pkg2md": "./pkg2md"
+    },
+    "main": "./index.js",
+    "keywords": [
+        "readme",
+        "readme.md",
+        "package",
+        "package.json",
+        "pkg",
+        "pkg-to-md",
+        "pkgtomd",
+        "pkg2md",
+        "markdown",
+        "md",
+        "api",
+        "cli",
+        "transform",
+        "convert",
+        "promise"
+    ]
+}
