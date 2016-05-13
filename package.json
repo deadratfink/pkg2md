@@ -30,7 +30,7 @@
     },
     "scripts": {
         "docs": "cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md && cat docs/USAGE.md >> README.md && cat docs/CONTRIBUTING.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2",
-        "wiki": "jsdoc2md lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.0.md' && cat CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3",
+        "wiki": "jsdoc2md lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3",
         "test": "istanbul cover _mocha --report lcovonly -- -R $npm_package_config_test_mocha_unit_reporter ./test/test*.js"
     },
     "engines": {
@@ -48,7 +48,7 @@
         "mkdirp-then": "^1.2.0",
         "package.json-schema": "^0.2.0",
         "serialize-js": "^1.1.0",
-        "url-join": "1.1.0"
+        "url-join": "^1.1.0"
     },
     "devDependencies": {
         "codeclimate-test-reporter": "^0.3.1",

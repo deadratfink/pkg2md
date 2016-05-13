@@ -13,7 +13,7 @@
 | Branch | [Codecov](https://codecov.io) | [Coveralls](https://coveralls.io) | [Inch CI](http://inch-ci.org) | [David](https://david-dm.org) DM | [David](https://david-dm.org) DM (dev) |
 | --- | --- | --- | --- | --- | --- |
 | master | [![codecov.io][cc-image-master]][cc-url-master]                | [![coveralls.io][ca-image-master]][ca-url-master]           | [![inch-ci.org][inch-image-master]][inch-url-master]           | [![Dependency Status][dep-image-master]][dep-url-master]           | [![devDependency Status][devdep-image-master]][devdep-url-master] |
-| development | [![codecov.io][cc-image-development]][cc-url-development] | [![coveralls.io][ca-image-development]][ca-url-development] | [![inch-ci.org][inch-image-development]][inch-url-development] | [![Dependency Status][dep-image-development]][dep-url-development] | [![devDependency Status][devdep-image-development]][devdep-url-development] |
+| develop | [![codecov.io][cc-image-development]][cc-url-development] | [![coveralls.io][ca-image-development]][ca-url-development] | [![inch-ci.org][inch-image-development]][inch-url-development] | [![Dependency Status][dep-image-development]][dep-url-development] | [![devDependency Status][devdep-image-development]][devdep-url-development] |
 
 <!--
 ### Coverage Graphs
@@ -21,7 +21,7 @@
 | Branch | Graph |
 | --- | --- |
 | master | ![codecov.io](https://codecov.io/github/deadratfink/pkg2md/branch.svg?branch=master&vg=true) |
-| development| ![codecov.io](https://codecov.io/github/deadratfink/pkg2md/branch.svg?branch=development&vg=true) | -->
+| develop| ![codecov.io](https://codecov.io/github/deadratfink/pkg2md/branch.svg?branch=develop&vg=true) | -->
 
 <!--
 ## NPM
@@ -58,29 +58,29 @@
 
 [cc-image-master]: https://img.shields.io/codecov/c/github/deadratfink/pkg2md/master.svg?style=flat-square
 [cc-url-master]: https://codecov.io/github/deadratfink/pkg2md?branch=master
-[cc-image-development]: https://img.shields.io/codecov/c/github/deadratfink/pkg2md/development.svg?style=flat-square
-[cc-url-development]: https://codecov.io/github/deadratfink/pkg2md?branch=development
+[cc-image-development]: https://img.shields.io/codecov/c/github/deadratfink/pkg2md/develop.svg?style=flat-square
+[cc-url-development]: https://codecov.io/github/deadratfink/pkg2md?branch=develop
 
 [ca-image-master]: https://img.shields.io/coveralls/deadratfink/pkg2md/master.svg?style=flat-square
 [ca-url-master]: https://coveralls.io/github/deadratfink/pkg2md?branch=master
-[ca-image-development]: https://img.shields.io/coveralls/deadratfink/pkg2md/development.svg?style=flat-square
-[ca-url-development]: https://coveralls.io/github/deadratfink/pkg2md?branch=development
+[ca-image-development]: https://img.shields.io/coveralls/deadratfink/pkg2md/develop.svg?style=flat-square
+[ca-url-development]: https://coveralls.io/github/deadratfink/pkg2md?branch=develop
 
 
 [inch-image-master]: https://inch-ci.org/github/deadratfink/pkg2md.svg?branch=master&style=flat-square
 [inch-url-master]: https://inch-ci.org/github/deadratfink/pkg2md?branch=master
-[inch-image-development]: https://inch-ci.org/github/deadratfink/pkg2md.svg?branch=development&style=flat-square
-[inch-url-development]: https://inch-ci.org/github/deadratfink/pkg2md?branch=development
+[inch-image-development]: https://inch-ci.org/github/deadratfink/pkg2md.svg?branch=develop&style=flat-square
+[inch-url-development]: https://inch-ci.org/github/deadratfink/pkg2md?branch=develop
 
 [dep-image-master]: https://img.shields.io/david/deadratfink/pkg2md/master.svg?style=flat-square
 [dep-url-master]: https://david-dm.org/deadratfink/pkg2md/master
-[dep-image-development]: https://img.shields.io/david/deadratfink/pkg2md/development.svg?style=flat-square
-[dep-url-development]: https://david-dm.org/deadratfink/pkg2md/development
+[dep-image-development]: https://img.shields.io/david/deadratfink/pkg2md/develop.svg?style=flat-square
+[dep-url-development]: https://david-dm.org/deadratfink/pkg2md/develop
 
 [devdep-image-master]: https://img.shields.io/david/dev/deadratfink/pkg2md/master.svg?style=flat-square
 [devdep-url-master]: https://david-dm.org/deadratfink/pkg2md/master#info=devDependencies
-[devdep-image-development]: https://img.shields.io/david/dev/deadratfink/pkg2md/development.svg?style=flat-square
-[devdep-url-development]: https://david-dm.org/deadratfink/pkg2md/development#info=devDependencies
+[devdep-image-development]: https://img.shields.io/david/dev/deadratfink/pkg2md/develop.svg?style=flat-square
+[devdep-url-development]: https://david-dm.org/deadratfink/pkg2md/develop#info=devDependencies
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
