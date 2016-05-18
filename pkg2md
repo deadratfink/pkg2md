@@ -15,7 +15,6 @@ const pkgToMd = new PkgToMd(cli);
 
 /**
  * How to use the CLI.
- *
  * @type {string}
  * @private
  */
@@ -23,7 +22,6 @@ var usage = path.basename(__filename) + ' [PKG-FILE] [MD-FILE] [OPTIONS]';
 
 /**
  * The path to package.json.
- *
  * @type {string}
  * @private
  */
@@ -38,36 +36,42 @@ var packagePath = __dirname + '/package.json';
  * @private
  */
 var options = {
+
+    // general options
     title:  [ 't', 'Another title to use as main headline instead of module name.', 'string', false ],
-    validate:  [ 'a', 'Whether to validate package.json', 'boolean', true ],
+    validate:  [ 'a', 'Whether to validate package.json'],
     headline: [ 'e', 'The amount of basic headline depth: 1 => #, 2 => ##, ...', 'number', 1 ],
+    force:   [ 'f', 'Force overwriting of existing output files on write phase. When an existing file is not overwritten (which is default), then the generated Markdown is simply appended.' ],
+
+    // assembled sections
+    tests: [ 'q', 'Whether to print the tests section (scripts.test).', 'boolean', true ],
+    inst: [ 'n', 'Whether to print the installation how to.', 'boolean', true ],
+    staff:  [ 's', 'Whether to print the project\'s staff (author, contributors and maintainers.' ],
+
+    // concrete properties
     desc: [ 'd', 'Whether to print the description.', 'boolean', true ],
-    inst: [ 'i', 'Whether to print the installation how to.', 'boolean', true ],
     lic: [ 'l', 'Whether to print the license.', 'boolean', true ],
+    main: [ 'm', 'Whether to print the main executable file.' ],
+    ver: [ 'v', 'Whether to print the version in title headline (version).', 'boolean', true ],
     deps: [ 'p', 'Whether to print the dependencies.', 'boolean', true ],
     devDeps: [ 'dp', 'Whether to print the devDependencies.', 'boolean', true ],
-    bundledDeps: [ 'bp', 'Whether to print the bundledDependencies.', 'boolean', true ],
+    bundledDeps: [ 'bp', 'Whether to print the bundleDependencies/bundledDependencies.', 'boolean', true ],
     optDeps: [ 'op', 'Whether to print the optionalDependencies.', 'boolean', true ],
     peerDeps: [ 'pp', 'Whether to print the peerDependencies.', 'boolean', true ],
-
-
-    //origin:  [ 'o', 'The conversion origin: [ ' + constants.JS + ' | ' + constants.JSON + ' | ' + constants.YAML + ' ].', 'string', constants.DEFAULT_OPTIONS.origin ],
-    //target:  [ 't', 'The conversion target: [ ' + constants.JS + ' | ' + constants.JSON + ' | ' + constants.YAML + ' ].', 'string', constants.DEFAULT_OPTIONS.target ],
-    //src:     [ 's', 'The absolute/relative input file path.', 'path'],
-    //dest:    [ 'd', 'The absolute/relative output file path. When this options is ommited then the output file is stored relative to the input file (same base name but with another extension if type differs). If input and output type are the same then the file overwriting is handled depending on the \'--force\' value!', 'path', constants.DEFAULT_OPTIONS.dest],
-    //indent:  [ 'i', 'The indention for pretty-print: 1 - 8.', 'int', constants.DEFAULT_INDENT ],
-    force:   [ 'f', 'Force overwriting of existing output files on write phase. When an existing file is not overwritten (which is default), then the generated Markdown is simply appended.' ],
-    //imports: [ 'm', 'Define a \'module.exports[.identifier] = \' identifier (to read from JS _source_ file only, must be a valid JS identifier!).', 'string', constants.DEFAULT_OPTIONS.imports ],
-    //exports: [ 'x', 'Define a \'module.exports[.identifier] = \' identifier (for usage in JS destination file only, must be a valid JS identifier!).', 'string', constants.DEFAULT_OPTIONS.exports ]
-    tests: [ 's', 'Whether to print the tests section.', 'boolean', true ],
-    ver: [ 'v', 'Whether to print the version in title headline.', 'boolean', true ]
+    repo:  [ 'r', 'Whether to print the repository.' ],
+    keywds:  [ 'k', 'Whether to print the keywords.' ],
+    bin:  [ 'b', 'Whether to print the binary mappings (bin).' ],
+    os:  [ 'o', 'Whether to print the OS support (os).' ],
+    cpu:  [ 'u', 'Whether to print the CPU support (cpu).' ],
+    config:  [ 'c', 'Whether to print the NPM config.' ],
+    scripts:  [ 'i', 'Whether to print the NPM scripts.' ],
+    engines:  [ 'g', 'Whether to print the engines.' ]
 };
 
 /**
  * The main entry callback. When calling cli.main() this receives the `options`
  * given on CLI, does the transformation with these options and prints the
  * result to the CLI.
- *
  * @param {object} args    - The first (optional) argument is the input file
  *                           (`args[0]`), the second (optional) argument is the
  *                           output file (`args[0]`).

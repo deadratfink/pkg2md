@@ -3,16 +3,33 @@
     "description": "This modules creates a Markdown presentation from a package.json on CLI.",
     "version": "0.9.0",
     "homepage": "https://github.com/deadratfink/pkg2md",
+    "license": "SEE LICENSE IN [LICENSE.md](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md)",
     "author": {
         "name": "Jens Krefeldt",
         "email": "j.krefeldt@gmail.com",
         "url": "https://github.com/deadratfink"
     },
-    "contributors": [],
-    "license": "SEE LICENSE IN [LICENSE.md](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md)",
+    "contributors": [{
+        "name": "xJens Krefeldt",
+        "email": "j.krefeldt@gmail.com",
+        "url": "https://github.com/deadratfink"
+    },"Barney Rubble <b@rubble.com> (http://barnyrubble.tumblr.com/)"],
+    "maintainers": [{
+        "name": "Jens Krefeldt",
+        "email": "j.krefeldt@gmail.com",
+        "url": "https://github.com/deadratfink"
+    },{
+        "name": "aJens Krefeldt",
+        "email": "j.krefeldt@gmail.com",
+        "url": "https://github.com/deadratfink"
+    }],
     "repository": {
         "type": "git",
         "url": "https://github.com/deadratfink/pkg2md.git"
+    },
+    "directories": {
+        "doc": "./docs",
+        "lib": "./lib"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
@@ -29,18 +46,22 @@
         }
     },
     "scripts": {
-        "docs": "cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md && cat docs/USAGE.md >> README.md && cat docs/CONTRIBUTING.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2",
-        "wiki": "jsdoc2md lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3",
+        "docs": "cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md -b -c -o -k -s -r -m -i && cat docs/USAGE.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2",
+        "wiki": "jsdoc2md -P lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3",
         "test": "istanbul cover _mocha --report lcovonly -- -R $npm_package_config_test_mocha_unit_reporter ./test/test*.js"
     },
     "engines": {
         "node": ">=0.10.0"
     },
+    "licenses": ["MIT", "APACHE"],
+    "os" : [ "darwin", "linux", "!win32" ],
+    "cpu" : [ "x64", "ia32", "!arm", "!mips" ],
     "dependencies": {
         "ajv": "^4.0.4",
         "bluebird": "^3.3.3",
         "cli": "^0.11.1",
         "cwd": "^0.9.1",
+        "flat": "^2.0.0",
         "github-url-to-object": "^2.2.1",
         "is-stream": "^1.0.1",
         "js-beautify": "^1.6.2",

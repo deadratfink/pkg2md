@@ -536,8 +536,16 @@ Anyway, there are some fallbacks if a level is not supported:
 # API Reference
 
 For more details on how to use the API, please refer to the 
-[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1.0) 
+[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1) 
 wiki which describes the full API and provides more examples.
+
+# Contributing
+
+Pull requests and stars are always welcome. Anybody is invited to take part 
+into this project. For bugs and feature requests, please create an 
+[issue](https://github.com/deadratfink/pkg2md/issues).
+See the wiki [Contributing](https://github.com/deadratfink/pkg2md/wiki/Changelog) 
+section for more details about conventions.
 
 # Changelog
 

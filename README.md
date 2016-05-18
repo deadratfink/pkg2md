@@ -88,9 +88,18 @@
 
 - [pkg2md (v0.9.0)](#pkg2md-v090)
   - [Installation](#installation)
+  - [Repository](#repository)
   - [dependencies](#dependencies)
   - [devDependencies](#devdependencies)
   - [Test](#test)
+  - [Who-Is-Who](#who-is-who)
+  - [Keywords](#keywords)
+  - [NPM Config](#npm-config)
+  - [NPM Scripts](#npm-scripts)
+  - [Main File](#main-file)
+  - [Binary Mappings](#binary-mappings)
+  - [Engine Support (Advisory Only!)](#engine-support-advisory-only)
+  - [OS Support](#os-support)
   - [License](#license)
   - [Motivation](#motivation)
 - [Usage](#usage)
@@ -100,37 +109,47 @@
   - [CLI Usage](#cli-usage)
   - [Using Custom Logger](#using-custom-logger)
 - [API Reference](#api-reference)
-- [Changelog](#changelog)
 - [Contributing](#contributing)
+- [Changelog](#changelog)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# pkg2md (v0.9.0)
+# [pkg2md (v0.9.0)](https://github.com/deadratfink/pkg2md)
 
 This modules creates a Markdown presentation from a package.json on CLI.
 
 ## Installation
 
-Download node.js at [nodejs.org](https://nodejs.org) and install it, if you haven't already.
+Download node.js at [nodejs.org](https://nodejs.org) and install it, if you haven't already. Ensure the proper registry setting before `npm install`:
+
+```
+$ npm config set registry https://registry.npmjs.org/
+```
 
 #### Global (Preferred)
 
 ```
-$ npm install pkg2md --global registry https://registry.npmjs.org/
+$ npm install pkg2md --global
 ```
 
 #### Local
 
 ```
-$ npm install pkg2md --save registry https://registry.npmjs.org/
+$ npm install pkg2md --save
 ```
 
+## Repository
+
+| Type | Link  |
+| --- | --- |
+| git | https://github.com/deadratfink/pkg2md |
 ## dependencies
 
 - [ajv](https://github.com/epoberezkin/ajv): Another JSON Schema Validator
 - [bluebird](https://github.com/petkaantonov/bluebird): Full featured Promises/A+ implementation with exceptionally good performance
 - [cli](https://github.com/node-js-libs/cli): A tool for rapidly building command line apps
 - [cwd](https://github.com/jonschlinkert/cwd): Easily get the CWD (current working directory) of a project based on package.json, optionally starting from a given path. (Node.js/javascript util)
+- [flat](https://github.com/hughsk/flat): Take a nested Javascript object and flatten it, or unflatten an object with delimited keys
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [is-stream](https://github.com/sindresorhus/is-stream): Check if something is a Node.js stream
 - [js-beautify](https://github.com/beautify-web/js-beautify): jsbeautifier.org for node
@@ -166,6 +185,59 @@ Test execution:
 $ npm install
 $ npm test
 ```
+
+## Who-Is-Who
+
+| Role | Name | Email  |
+| --- | --- | --- |
+| Author | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
+| Contributor | [Barney Rubble](http://barnyrubble.tumblr.com/) | [b@rubble.com](mailto:b@rubble.com?subject=pkg2md) |
+| Contributor | [xJens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
+| Maintainer | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
+| Maintainer | [aJens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
+## Keywords
+
+api, cli, convert, markdown, md, package, package.json, pkg, pkg-to-md, pkg2md, pkgtomd, promise, readme, readme.md, transform
+
+## NPM Config
+
+| Property (flattened) | Value | Applicable in `scripts` Section  |
+| --- | --- | --- |
+| `test.mocha.unit.reporter` | spec | `$npm_package_config_test_mocha_unit_reporter`|
+
+
+## NPM Scripts
+
+| Run Command | Script Executed  |
+| --- | --- |
+| `$ npm run docs` | `cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md -b -c -o -k -s -r -m -i && cat docs/USAGE.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2` |
+| `$ npm run test` | `istanbul cover _mocha --report lcovonly -- -R $npm_package_config_test_mocha_unit_reporter ./test/test*.js` |
+| `$ npm run wiki` | `jsdoc2md -P lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3` |
+
+
+## Main File
+
+- _./index.js_
+
+## Binary Mappings
+
+- `$ pkg2md` ⇒ _./pkg2md_
+
+## Engine Support (Advisory Only!)
+
+| Engine | Version  |
+| --- | --- |
+| node | >=0.10.0 |
+
+
+## OS Support
+
+| Supported | Not Supported  |
+| --- | --- |
+| darwin | - |
+| linux | - |
+| - | win32 |
+
 
 ## License
 
@@ -709,46 +781,18 @@ Anyway, there are some fallbacks if a level is not supported:
 # API Reference
 
 For more details on how to use the API, please refer to the 
-[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1.0) 
+[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1) 
 wiki which describes the full API and provides more examples.
-
-# Changelog
-
-The complete changelog is listed in the wiki [Changelog](https://github.com/deadratfink/pkg2md/wiki/Changelog) section.
 
 # Contributing
 
 Pull requests and stars are always welcome. Anybody is invited to take part 
 into this project. For bugs and feature requests, please create an 
-[issue](https://github.com/deadratfink/jy-transform/issues).
-When contributing as coder, please take care of the following conventions:
+[issue](https://github.com/deadratfink/pkg2md/issues).
+See the wiki [Contributing](https://github.com/deadratfink/pkg2md/wiki/Changelog) 
+section for more details about conventions.
 
-- Enter yourself in the `contributors` section of _package.json_.
-- We strictly follow [Semantic Versioning 2](http://semver.org) rules.
-- The `development` branch is the leading branch and is protected. Create bugfix and feature 
-  branches (or fork into you own namespace) and create pull 
-  requests to `development` when finished. Any of these should be prefixed with 
-  `bugfix/#...` or `feature/#...` (followed by issue number and a short, "underscored" 
-  proper meaning), e.g. 
-  - `bugfix/#8_fix_js_reading_with_require`
-  - `feature/#14_multidocument_support`
-- Remember that name could need to be enclosed in quotes, e.g. 
-  ```$ git checkout -b 'feature/#19_...'```
-  when using git shell command.
-- The `master` branch is protected and is the stable branch after a release. 
-  It will never be pushed directly (only on release build).
-- Indention for any file is 4 SPACEs.
-- Keep code coverage high (> 95%).
-- Doc everything with [JSDocs](http://usejsdoc.org/) and document concepts in 
-  [README.md](https://github.com/deadratfink/jy-transform/blob/development/README.md)
-  or [Wiki](https://github.com/deadratfink/jy-transform/wiki).
-- Use _single_ parenthesis (`'...'`) in _*.js_ files instead of _double_ parenthesis (`"..."`).
-- Avoid the of use parenthesis for keys in JSON objects.
-- Use the strict mode (`'use strict';`) in _*.js_ files.
-- File names should be lower-case with hyphens as divider, e.g. _options-handler.js_.
-- Markdown documentation files should be upper-case with _.md_ as extension, placed 
-  in _./docs_, e.g. _USAGE.md_. The _README.md_ is build up by these files concatenated 
-  by `npm run docs` command. Any new files have to be added to `scripts.docs` section of 
-  _package.json_. Don't forget to regenerate _README.md_ (`$ npm run docs`) and wiki 
-  (`$ npm run wiki`) before committing.
+# Changelog
+
+The complete changelog is listed in the wiki [Changelog](https://github.com/deadratfink/pkg2md/wiki/Changelog) section.
 
