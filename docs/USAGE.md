@@ -1,10 +1,11 @@
-## Motivation
+# Motivation
 
 Why this module? Module [package-json-to-readme](https://github.com/zeke/package-json-to-readme) 
-is a nice tool to generate a README from scratch, but unfortunately, it lacks 
-some options and does not cover all of _package.json_. Therefore, I decided
-to write my own module which is more flexible and covers also other sections 
-in the _package.json_.
+is a nice tool to generate a README from scratch. Unfortunately, for me, it lacks 
+for some options and does not cover all of _package.json_ I needed. Therefore, I decided
+to write my own module which is more flexible (in terms of options) and covers also other sections 
+in the _package.json_, concentrating on the standard package info only 
+(no badges, no example files).
 
 # Usage
 
@@ -20,7 +21,65 @@ Since the module can be used in two different ways, use installation as follows:
 
 Both usage types are described in more detail in the following sections.
 
-## Use Cases
+## Use Case
+
+The module can easily be used by API but a in most cases a usual scenario 
+could be the usage on CLI. You can simply refer to the [API Reference](#api-reference) 
+section for API access use case (these contains some examples how to use) it.
+
+The following snippet gives an example how to 
+use it in `scripts` section of a _package.json_ of your particular project,
+here as `docs` target generating the _README.md_:
+
+```javascript
+{
+    ...
+    "scripts" : {
+        "docs": "pkg2md <OPTIONS...>"
+    },
+    ...
+}
+```
+
+Simply run:
+
+```
+$ npm run docs
+```
+
+and `pkg2md` generates the _README.md_ (or any other MD file if specified 
+as _file_ argument) or just appends to an existing one (which is autodetected), 
+to overwrite simply use the `-f` (`--force`) option on command).
+
+Of course, the `pkg2md` command can be pre- or appended by other commands 
+manipulating the _README.md_. Let's say after generation, we we want to 
+insert a a TOC in front of the generated content using the nice module 
+[doctoc](https://github.com/thlorenz/doctoc), this can be easily achieved 
+as follows:
+
+
+```javascript
+{
+    ...
+    "scripts" : {
+        "docs": "cat docs/TOC.md > README.md && pkg2md <OPTIONS...> && doctoc README.md --github --title '# TOC' --maxlevel 2"
+    },
+    ...
+}
+```
+
+**NOTE:** the file _./docs/TOC.md_ contains the comments used by `doctoc` 
+to locate the position where to insert the TOC:
+
+```html
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+
+```
+
+The two _newlines_ are there by intention to create some distance to the 
+follow-up section.
 
 TODO!!!
 <!--

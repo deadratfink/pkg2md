@@ -18,7 +18,7 @@ const pkgToMd = new PkgToMd(cli);
  * @type {string}
  * @private
  */
-var usage = path.basename(__filename) + ' [PKG-FILE] [MD-FILE] [OPTIONS]';
+var usage = path.basename(__filename) + ' [PKG-IN-FILE (default: package.json)] [MD-OUT-FILE (default: README.md)] [OPTIONS]';
 
 /**
  * The path to package.json.
@@ -38,47 +38,54 @@ var packagePath = __dirname + '/package.json';
 var options = {
 
     // general options
-    title:  [ 't', 'Another title to use as main headline instead of module name.', 'string', false ],
-    validate:  [ 'a', 'Whether to validate package.json'],
+    title:  [ 't', 'Another title to use as main headline instead of module [name]', 'string', false ],
+    validate:  [ 'a', 'Whether to validate the package.json file on input reading' ],
     headline: [ 'e', 'The amount of basic headline depth: 1 => #, 2 => ##, ...', 'number', 1 ],
-    force:   [ 'f', 'Force overwriting of existing output files on write phase. When an existing file is not overwritten (which is default), then the generated Markdown is simply appended.' ],
+    force:   [ 'f', 'Force overwriting of existing output files on write phase: if an existing file is not overwritten (which is default), then the generated Markdown is simply appended' ],
 
     // assembled sections
-    tests: [ 'q', 'Whether to print the tests section (scripts.test).', 'boolean', true ],
-    inst: [ 'n', 'Whether to print the installation how to.', 'boolean', true ],
-    staff:  [ 's', 'Whether to print the project\'s staff (author, contributors and maintainers.' ],
+    tests: [ 'q', 'Whether to print the test execution section [scripts.test]', 'false', true ],
+    inst: [ 'n', 'Whether to print the installation how to', 'false', true ],
+    staff:  [ 's', 'Whether to print the project\'s staff: [author], [contributors] and [maintainers]' ],
 
     // concrete properties
-    desc: [ 'd', 'Whether to print the description.', 'boolean', true ],
-    lic: [ 'l', 'Whether to print the license.', 'boolean', true ],
-    main: [ 'm', 'Whether to print the main executable file.' ],
-    ver: [ 'v', 'Whether to print the version in title headline (version).', 'boolean', true ],
-    deps: [ 'p', 'Whether to print the dependencies.', 'boolean', true ],
-    devDeps: [ 'dp', 'Whether to print the devDependencies.', 'boolean', true ],
-    bundledDeps: [ 'bp', 'Whether to print the bundleDependencies/bundledDependencies.', 'boolean', true ],
-    optDeps: [ 'op', 'Whether to print the optionalDependencies.', 'boolean', true ],
-    peerDeps: [ 'pp', 'Whether to print the peerDependencies.', 'boolean', true ],
-    repo:  [ 'r', 'Whether to print the repository.' ],
-    keywds:  [ 'k', 'Whether to print the keywords.' ],
-    bin:  [ 'b', 'Whether to print the binary mappings (bin).' ],
-    os:  [ 'o', 'Whether to print the OS support (os).' ],
-    cpu:  [ 'u', 'Whether to print the CPU support (cpu).' ],
-    config:  [ 'c', 'Whether to print the NPM config.' ],
-    scripts:  [ 'i', 'Whether to print the NPM scripts.' ],
-    engines:  [ 'g', 'Whether to print the engines.' ]
+    desc: [ 'd', 'Whether to print the [description]', 'false', true ],
+    lic: [ 'l', 'Whether to print the [license]', 'false', true ],
+    main: [ 'm', 'Whether to print the [main] executable file' ],
+    ver: [ null, 'Whether to print the [version] in title headline' ],
+    deps: [ 'p', 'Whether to print the module library dependencies [dependencies, devDependencies, bundleDependencies/bundledDependencies, optionalDependencies, peerDependencies]', 'false', true ],
+    //devDeps: [ 'dp', 'Whether to print the [devDependencies]', 'false', true ],
+    //bundledDeps: [ 'bp', 'Whether to print the [bundleDependencies/bundledDependencies]', 'false', true ],
+    //optDeps: [ 'op', 'Whether to print the [optionalDependencies]', 'false', true ],
+    //peerDeps: [ 'pp', 'Whether to print the [peerDependencies]', 'false', true ],
+    repo:  [ 'r', 'Whether to print the [repository]' ],
+    keywords:  [ 'k', 'Whether to print the [keywords]' ],
+    bin:  [ 'b', 'Whether to print the binary mappings [bin]' ],
+    os:  [ 'o', 'Whether to print the OS support [os]' ],
+    cpu:  [ 'u', 'Whether to print the CPU support [cpu]' ],
+    config:  [ 'c', 'Whether to print the NPM [config]' ],
+    scripts:  [ 'i', 'Whether to print the NPM [scripts]' ],
+    engines:  [ 'g', 'Whether to print the supported [engines]' ]
 };
 
 /**
- * The main entry callback. When calling cli.main() this receives the `options`
- * given on CLI, does the transformation with these options and prints the
- * result to the CLI.
+ * The main entry callback. When calling cli.main() this receives the `args`
+ * and `options` given on CLI, does the transformation with these options
+ * and prints the result to the CLI.
  * @param {object} args    - The first (optional) argument is the input file
  *                           (`args[0]`), the second (optional) argument is the
  *                           output file (`args[0]`).
  * @param {object} options - The options set on CLI.
  * @private
  */
-function main(args, options) {
+function mainCb(args, options) {
+
+    // CLI debug
+
+    cli.debug('application: ' + cli.app);
+    cli.debug('parsed args: ' + JSON.stringify(args, null, 4));
+    cli.debug('parsed options: ' + JSON.stringify(options, null, 4));
+    cli.debug('raw process args: ' + JSON.stringify(process.argv, null, 4));
 
     // read file args and set to options
 
@@ -115,8 +122,9 @@ function main(args, options) {
  * Init the CLI instance.
  */
 cli.width = 120;
+cli.option_width = cli.option_width + 6;
 cli.setUsage(usage);
 cli.setApp(packagePath);
 cli.enable('version', 'status', 'timeout');
 cli.parse(options);
-cli.main(main);
+cli.main(mainCb);
