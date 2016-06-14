@@ -1,6 +1,6 @@
 {
     "name": "pkg2md",
-    "description": "This modules creates a Markdown presentation from a package.json on CLI.",
+    "description": "This modules creates a Markdown presentation from a package.json on CLI or API.",
     "version": "0.9.0",
     "homepage": "https://github.com/deadratfink/pkg2md",
     "license": "SEE LICENSE IN [LICENSE.md](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md)",

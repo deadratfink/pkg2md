@@ -1,6 +1,6 @@
 # [pkg2md](https://github.com/deadratfink/pkg2md)
 
-This modules creates a Markdown presentation from a package.json on CLI.
+This modules creates a Markdown presentation from a package.json on CLI or API.
 
 ## Installation
 
@@ -14,6 +14,12 @@ $ npm config set registry https://registry.npmjs.org/
 
 ```
 $ npm install pkg2md --save
+```
+
+or as `devDependency`:
+
+```
+$ npm install pkg2md --save-dev
 ```
 
 ## Repository
@@ -60,43 +66,6 @@ Test execution:
 $ npm install
 $ npm test
 ```
-
-## Who-Is-Who
-
-| Role | Name | Email  |
-| --- | --- | --- |
-| Author | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-| Contributor | [Barney Rubble](http://barnyrubble.tumblr.com/) | [b@rubble.com](mailto:b@rubble.com?subject=pkg2md) |
-| Contributor | [Carney Rubble](http://barnyrubble.tumblr.com/) | [b@rubble.com](mailto:b@rubble.com?subject=pkg2md) |
-| Contributor | [xJens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-| Maintainer | [aJens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-| Maintainer | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-| Maintainer | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-## NPM Config
-
-| Property (flattened) | Value | Applicable in `scripts` Section  |
-| --- | --- | --- |
-| `test.istanbul.report` | lcovonly | `$npm_package_config_test_istanbul_report`|
-| `test.mocha.reporter` | spec | `$npm_package_config_test_mocha_reporter`|
-
-
-## Engine Support
-
-**NOTE:**  advisory only!
-
-| Engine | Version  |
-| --- | --- |
-| node | >=0.10.0 |
-
-
-## OS Support
-
-| Supported | Not Supported  |
-| --- | --- |
-| darwin | - |
-| linux | - |
-| - | win32 |
-
 
 ## License
 
