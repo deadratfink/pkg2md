@@ -1,20 +1,20 @@
 # Motivation
 
-Why this module? Module [package-json-to-readme](https://github.com/zeke/package-json-to-readme) 
-is a nice tool to generate a README from scratch. Unfortunately, for me, it lacks 
-for some options and does not cover all of _package.json_ I needed. Therefore, I decided
-to write my own module which is more flexible (in terms of options) and covers also other sections 
-in the _package.json_, concentrating on the standard package info only 
+Why this module? Module [package-json-to-readme](https://github.com/zeke/package-json-to-readme)
+is a nice tool to generate a README from scratch. Unfortunately, for me it lacks
+some options and does not cover all of _package.json_ I needed. Therefore, I decided
+to write my own module which is more flexible (in terms of options) and covers also other sections
+in the _package.json_, concentrating on the standard package info only
 (no badges, no example files).
 
 # Usage
 
-The module can be used on CLI or as API (the latter is fully [Promise](http://bluebirdjs.com/docs/api-reference.html) 
+The module can be used on CLI or as API (the latter is fully [Promise](http://bluebirdjs.com/docs/api-reference.html)
 based).
 
 ## Usage Types
 
-Since the module can be used in two different ways, use installation as follows:
+Since the module can be used in two different ways, do an installation as follows:
 
 - CLI: install globally via `-g` option
 - API: install locally
@@ -23,11 +23,11 @@ Both usage types are described in more detail in the following sections.
 
 ## Use Case
 
-The module can easily be used by API but a in most cases a usual scenario 
-could be the usage on CLI. You can simply refer to the [API Reference](#api-reference) 
+The module can easily be used by API but a in most cases a usual scenario
+could be the usage on CLI. You can simply refer to the [API Reference](#api-reference)
 section for API access use case (these contains some examples how to use) it.
 
-The following snippet gives an example how to 
+The following snippet gives an example how to
 use it in `scripts` section of a _package.json_ of your particular project,
 here as `docs` target generating the _README.md_:
 
@@ -47,14 +47,14 @@ Simply run:
 $ npm run docs
 ```
 
-and `pkg2md` generates the _README.md_ (or any other MD file if specified 
-as _file_ argument) or just appends to an existing one (which is autodetected), 
+and `pkg2md` generates the _README.md_ (or any other MD file if specified
+as _file_ argument) or just appends to an existing one (which is autodetected),
 to overwrite simply use the `-f` (`--force`) option on command).
 
-Of course, the `pkg2md` command can be pre- or appended by other commands 
-manipulating the _README.md_. Let's say after generation, we we want to 
-insert a a TOC in front of the generated content using the nice module 
-[doctoc](https://github.com/thlorenz/doctoc), this can be easily achieved 
+Of course, the `pkg2md` command can be pre- or appended by other commands
+manipulating the _README.md_. Let's say after generation, we we want to
+insert a a TOC in front of the generated content using the nice module
+[doctoc](https://github.com/thlorenz/doctoc), this can be easily achieved
 as follows:
 
 
@@ -68,7 +68,7 @@ as follows:
 }
 ```
 
-**NOTE:** the file _./docs/TOC.md_ contains the comments used by `doctoc` 
+**NOTE:** the file _./docs/TOC.md_ contains the comments used by `doctoc`
 to locate the position where to insert the TOC:
 
 ```html
@@ -78,7 +78,7 @@ to locate the position where to insert the TOC:
 
 ```
 
-The two _newlines_ are there by intention to create some distance to the 
+The two _newlines_ are there by intention to create some distance to the
 follow-up section.
 
 TODO!!!
@@ -112,22 +112,22 @@ The transformation can take place into several directions:
 - YAML ⇒ JS
 - YAML ⇒ JSON
 - JS   ⇒ YAML
-- JSON ⇒ YAML 
-- JS   ⇒ JSON 
-- JSON ⇒ JS 
-- YAML ⇒ YAML     
+- JSON ⇒ YAML
+- JS   ⇒ JSON
+- JSON ⇒ JS
+- YAML ⇒ YAML
 - JSON ⇒ JSON
-- JS   ⇒ JS       
+- JS   ⇒ JS
 
 while:
 
 - [YAML](http://http://yaml.org/) = _*.yaml_, _*.yml_
-- [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) = _*.js_   (JS object)  
+- [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) = _*.js_   (JS object)
 - [JSON](http://json.org) = _*.json_ (JS object serialized as JSON)
 
 ### Middleware
 
-Apply actions on the intermediate JS object via injected [Promise](http://bluebirdjs.com/docs/api-reference.html) 
+Apply actions on the intermediate JS object via injected [Promise](http://bluebirdjs.com/docs/api-reference.html)
 functions. This is an optional part for [transformation](#transformation) phase.
 
 ### Writing
@@ -152,8 +152,8 @@ None known yet.
 
 ## CLI Usage
 
-The CLI provides the `pkg2md` command (actually, this might require the use of options). 
-After the global installation you can access the command options 
+The CLI provides the `pkg2md` command (actually, this might require the use of options).
+After the global installation you can access the command options
 with the usual help command as follows:
 
 ```
@@ -170,7 +170,7 @@ $ pkg2md --help
 TODO!!!
 ```
 
-These are more formally defined in the following table: 
+These are more formally defined in the following table:
 
 TODO!!!
 
@@ -187,11 +187,11 @@ TODO!!!
 | `-k` | `--no-color` | n/a | Omit color from output. | _color_ | no |
 |  n/a | `--debug` | n/a | Show debug information. | _false_ | no |
 | `-v` | `--version` | n/a | Display the current version. | n/a | no |
-| `-h` | `--help` | n/a | Display help and usage details. | n/a | no | 
+| `-h` | `--help` | n/a | Display help and usage details. | n/a | no |
 
 ### Examples
 
-Now we know which properties we can apply on CLI, so let's assume we 
+Now we know which properties we can apply on CLI, so let's assume we
 have a YAML file located in _foo.yaml_ holding this data:
 
 ```yaml
@@ -213,20 +213,20 @@ using this command:
 $ jyt -s foo.yaml -t json -i 2
 ```
 
-In this example we have overwritten the standard target type (which is `js`) 
-and applying an indent of _2_ instead of the default _4_. As default the output 
-file _foo.json_ is written relative to the input file (simply omitting the 
+In this example we have overwritten the standard target type (which is `js`)
+and applying an indent of _2_ instead of the default _4_. As default the output
+file _foo.json_ is written relative to the input file (simply omitting the
 `dest` option here).
 
-**NOTE:** here you _have_ to provide the target with `-t json` or else the 
-default `js` would have been applied! If the source would have been a `js` 
+**NOTE:** here you _have_ to provide the target with `-t json` or else the
+default `js` would have been applied! If the source would have been a `js`
 type like
 
 ```
 $ jyt -s foo.js -t json -i 2
 ```
 
-then the `js` value for `origin` is automatically inferred from file extension. 
+then the `js` value for `origin` is automatically inferred from file extension.
 Accordingly, this is also true for the `target` option.
 
 #### Example: JSON ⇒ JS
@@ -259,9 +259,9 @@ $ jyt -s foo.json -d results/foobar.yaml
 
 #### Example: Transformation with Unsupported Source File Extension
 
-As said, normally we infer from file extension to the type but assume the source 
-file has a file name which does not imply the type (here a JSON 
-type in a TEXT file), then you can simply provide the `-o` option with the 
+As said, normally we infer from file extension to the type but assume the source
+file has a file name which does not imply the type (here a JSON
+type in a TEXT file), then you can simply provide the `-o` option with the
 correct `origin` type (of course, the `-t` option works analogous):
 
 
@@ -271,7 +271,7 @@ $ jyt -s foo.txt -o json -d foobar.yaml
 
 #### Example: Read from File with Exports Identifier
 
-It could be that a JS source `exports` several objects and you want to read 
+It could be that a JS source `exports` several objects and you want to read
 from exactly the one you specify, then provide the `-m` (`--imports`) option.
 
 In this this example we have a _foo.js_ file exporting _two_ objects:
@@ -327,8 +327,8 @@ as sub-node of `options.dest`.
 
 #### Example: Write Exports Identifier for JS File
 
-Assume you want to generate a JS file with an exports string which gets an 
-identifier. We reuse the YAML file from above 
+Assume you want to generate a JS file with an exports string which gets an
+identifier. We reuse the YAML file from above
 
 ```yaml
 foo: bar
@@ -349,21 +349,21 @@ module.exports.foobar = {
 ```
 
 **NOTE:** the identifier must be a valid JS identifier accoding to ECMAScript 6
-(see also [Valid JavaScript variable names in ECMAScript 6](https://mathiasbynens.be/notes/javascript-identifiers-es6) 
+(see also [Valid JavaScript variable names in ECMAScript 6](https://mathiasbynens.be/notes/javascript-identifiers-es6)
 and [Generating a regular expression to match valid JavaScript identifiers](https://mathiasbynens.be/demo/javascript-identifier-regex)). -->
 
 #### Example: Force Overwriting
 
-**IMPORTANT NOTE:** when using this feature then any subsequent 
-execution which uses the same target/file name, 
+**IMPORTANT NOTE:** when using this feature then any subsequent
+execution which uses the same target/file name,
 will overwrite the original source or target created beforehand!
 
-By default this feature is not enabled to prevent you from accidentally 
+By default this feature is not enabled to prevent you from accidentally
 overwriting your input source.
 
 ```
 $ pkg2md -f
-``` 
+```
 
 Of course, leaving out the `-f` switch simply appends the generated content to the input file.
 
@@ -374,20 +374,20 @@ Since the usage on CLI is a 2-step process:
 
 1. Read from source file to JS object ⇒ 2. Write out (maybe to other type)
 
-the direct API calls additionally provide the usage of a _middleware_ function 
-where you can alter the input JS object before it is written and therefore, which turns 
+the direct API calls additionally provide the usage of a _middleware_ function
+where you can alter the input JS object before it is written and therefore, which turns
 this into a 3-step process:
- 
+
 1. Read from source ⇒ 2. Alter the JS object ⇒ 3. Write out (maybe to other type)
 
-For more details about this and all the functions provided by this module please refer to the 
+For more details about this and all the functions provided by this module please refer to the
 [API Reference](https://github.com/deadratfink/jy-transform/wiki/API-v1.0).
 
 The `origin` and `target` type inference is also standard for the API level.
 
 ### API Properties
 
-The `Transformer` exposes the following function which takes besides an (optional) 
+The `Transformer` exposes the following function which takes besides an (optional)
 `middleware` function the necessary `options` for the transformation:
 
 ```javascript
@@ -423,13 +423,13 @@ var options = {
 
 ### Using Middleware
 
-The `middleware` is optional but if provided it must be of type `Function` and 
-a [Promise](http://bluebirdjs.com/docs/api-reference.html). One of the easiest 
-ones is the identity function 
+The `middleware` is optional but if provided it must be of type `Function` and
+a [Promise](http://bluebirdjs.com/docs/api-reference.html). One of the easiest
+ones is the identity function
 
-_f(data) → data_ 
+_f(data) → data_
 
-which could be expressed as 
+which could be expressed as
 [Promise](http://bluebirdjs.com/docs/api-reference.html) function as follows:
 
 ```javascript
@@ -438,8 +438,8 @@ var identity = function (data) {
 }
 ```
 
-Of course, this would have no effect on the provided JS data. Actually, this one is 
-used internally when no middleware is provided to ensure the proper promised 
+Of course, this would have no effect on the provided JS data. Actually, this one is
+used internally when no middleware is provided to ensure the proper promised
 control flow.
 
 OK, lets go back to a more practical example, e.g. we want to alter the value of
@@ -454,7 +454,7 @@ Applying this [Promise](http://bluebirdjs.com/docs/api-reference.html) as middle
 
 ```javascript
 var middleware = function (data) {
-    data.foo = 'new bar'; 
+    data.foo = 'new bar';
     return Promise.resolve(data);
 }
 
@@ -475,17 +475,17 @@ will result in such JSON file:
 }
 ```
 
-Of course, in real world scenarios you will have use cases which usually have a 
-higher complexity where one function might be insufficient or at least 
-inconvenient. but this does not raise a problem at all, because you can create 
-several functions to be applied in the whole transformation process by gathering 
+Of course, in real world scenarios you will have use cases which usually have a
+higher complexity where one function might be insufficient or at least
+inconvenient. but this does not raise a problem at all, because you can create
+several functions to be applied in the whole transformation process by gathering
 them in one function.
 
-Let's assume we have some Promise functions to apply. For simplicity reasons we 
-simulate these for the moment by two functions, each adding a key-value to the 
+Let's assume we have some Promise functions to apply. For simplicity reasons we
+simulate these for the moment by two functions, each adding a key-value to the
 given (initially empty) JS object.
 
-**NOTE:** each of them has to resolve with the `data` object! 
+**NOTE:** each of them has to resolve with the `data` object!
 
 
 ```javascript
@@ -506,10 +506,10 @@ function key3(data) {
 ```
 
 These can be collected by different aggregation or composition functions of the underlying
-Promise framework, e.g. using the  [`Promise.all([...])`](http://bluebirdjs.com/docs/api/promise.all.html) 
+Promise framework, e.g. using the  [`Promise.all([...])`](http://bluebirdjs.com/docs/api/promise.all.html)
 function. This one can collect all three functions above and ensure their proper subsequent execution:
 
- 
+
 ```javascript
 var middleware = function (data) {
     return Promise.all([key1(data), key2(data), key3(data)])
@@ -533,10 +533,10 @@ return transformer.transform(options, middleware)
     });
 ```
 
-Then the result in the `middleware` function can be retrieved from the returned 
-array, i.e. in case of [`Promise.all([...])`](http://bluebirdjs.com/docs/api/promise.all.html) 
+Then the result in the `middleware` function can be retrieved from the returned
+array, i.e. in case of [`Promise.all([...])`](http://bluebirdjs.com/docs/api/promise.all.html)
 you have to pick the _last_ element which contains the "final product".
- 
+
 From our example above it would be result in this object
 
 ```javascript
@@ -547,7 +547,7 @@ From our example above it would be result in this object
 }
 ```
 
-which then is passed back to the transformation chain. Following this pattern 
+which then is passed back to the transformation chain. Following this pattern
 you can do almost everything with the JS object, like
 
 - deleting properties
@@ -560,9 +560,9 @@ Whatever you do during transformation, just keep it valid ;-)
 
 ## Using Custom Logger
 
-It is usual that you use an own `logger` in your application. This module 
-supports you by letting you inject your logger as constructor argument to the 
-following objects: 
+It is usual that you use an own `logger` in your application. This module
+supports you by letting you inject your logger as constructor argument to the
+following objects:
 - `PkgReader`
 - `Md`
 - `PkgToMd`
@@ -594,16 +594,16 @@ Anyway, there are some fallbacks if a level is not supported:
 
 # API Reference
 
-For more details on how to use the API, please refer to the 
-[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1) 
+For more details on how to use the API, please refer to the
+[API Reference](https://github.com/deadratfink/pkg2md/wiki/API-v1)
 wiki which describes the full API and provides more examples.
 
 # Contributing
 
-Pull requests and stars are always welcome. Anybody is invited to take part 
-into this project. For bugs and feature requests, please create an 
+Pull requests and stars are always welcome. Anybody is invited to take part
+into this project. For bugs and feature requests, please create an
 [issue](https://github.com/deadratfink/pkg2md/issues).
-See the wiki [Contributing](https://github.com/deadratfink/pkg2md/wiki/Changelog) 
+See the wiki [Contributing](https://github.com/deadratfink/pkg2md/wiki/Changelog)
 section for more details about conventions.
 
 # Changelog

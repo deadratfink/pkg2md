@@ -9,11 +9,39 @@
         "email": "j.krefeldt@gmail.com",
         "url": "https://github.com/deadratfink"
     },
-    "contributors": [],
-    "maintainers": [],
+    "contributors": [
+        {
+            "name": "xJens Krefeldt",
+            "email": "j.krefeldt@gmail.com",
+            "url": "https://github.com/deadratfink"
+        },
+        "Barney Rubble <b@rubble.com> (http://barnyrubble.tumblr.com/)",
+        "Carney Rubble <b@rubble.com> (http://barnyrubble.tumblr.com/)"
+    ],
+    "maintainers": [
+        {
+            "name": "Jens Krefeldt",
+            "email": "j.krefeldt@gmail.com",
+            "url": "https://github.com/deadratfink"
+        },
+        {
+            "name": "Jens Krefeldt",
+            "email": "j.krefeldt@gmail.com",
+            "url": "https://github.com/deadratfink"
+        },
+        {
+            "name": "aJens Krefeldt",
+            "email": "j.krefeldt@gmail.com",
+            "url": "https://github.com/deadratfink"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/deadratfink/pkg2md.git"
+    },
+    "directories": {
+        "doc": "./docs",
+        "lib": "./lib"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
@@ -39,6 +67,21 @@
     "engines": {
         "node": ">=0.10.0"
     },
+    "licenses": [
+        "MIT",
+        "APACHE"
+    ],
+    "os": [
+        "darwin",
+        "linux",
+        "!win32"
+    ],
+    "cpu": [
+        "x64",
+        "ia32",
+        "!arm",
+        "!mips"
+    ],
     "dependencies": {
         "ajv": "^4.0.5",
         "bluebird": "^3.3.3",
@@ -67,7 +110,7 @@
         "package-json-to-readme": "^1.5.0",
         "winston": "^2.2.0"
     },
-    "preferGlobal": true,
+    "preferGlobal": false,
     "bin": {
         "pkg2md": "./pkg2md"
     },

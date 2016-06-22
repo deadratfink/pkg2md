@@ -38,34 +38,34 @@ var packagePath = __dirname + '/package.json';
 var options = {
 
     // general options
-    title:  [ 't', 'Another title to use as main headline instead of module [name]', 'string', false ],
-    validate:  [ 'a', 'Whether to validate the package.json file on input reading' ],
-    headline: [ 'e', 'The amount of basic headline depth: 1 => #, 2 => ##, ...', 'number', 1 ],
-    force:   [ 'f', 'Force overwriting of existing output files on write phase: if an existing file is not overwritten (which is default), then the generated Markdown is simply appended' ],
+    title: ['t', 'Another title to use as main headline instead of module [name]', 'string', false],
+    validate: ['a', 'Whether to validate the package.json file on input reading'],
+    headline: ['e', 'The amount of basic headline indention: 1 => #, 2 => ##, ...', 'number', 1],
+    force: ['f', 'Force overwriting of existing output files on write phase: if an existing file is not overwritten (which is default), then the generated Markdown is simply appended'],
 
     // assembled sections
-    tests: [ 'q', 'Whether to print the test execution section [scripts.test]', 'false', true ],
-    inst: [ 'n', 'Whether to print the installation how to', 'false', true ],
-    staff:  [ 's', 'Whether to print the project\'s staff: [author], [contributors] and [maintainers]' ],
+    tests: ['q', 'Whether to print the test execution section [scripts.test]', 'false', true],
+    inst: ['n', 'Whether to print the installation how to', 'false', true],
+    staff: ['s', 'Whether to print the project\'s staff: [author], [contributors] and [maintainers]'],
 
     // concrete properties
-    desc: [ 'd', 'Whether to print the [description]', 'false', true ],
-    lic: [ 'l', 'Whether to print the [license]', 'false', true ],
-    main: [ 'm', 'Whether to print the [main] executable file' ],
-    ver: [ null, 'Whether to print the [version] in title headline' ],
-    deps: [ 'p', 'Whether to print the module library dependencies [dependencies, devDependencies, bundleDependencies/bundledDependencies, optionalDependencies, peerDependencies]', 'false', true ],
+    desc: ['d', 'Whether to print the [description]', 'false', true],
+    lic: ['l', 'Whether to print the [license]', 'false', true],
+    main: ['m', 'Whether to print the [main] executable file'],
+    ver: [null, 'Whether to print the [version] in title headline'],
+    deps: ['p', 'Whether to print the module library dependencies [dependencies, devDependencies, bundleDependencies/bundledDependencies, optionalDependencies, peerDependencies]', 'false', true],
     //devDeps: [ 'dp', 'Whether to print the [devDependencies]', 'false', true ],
     //bundledDeps: [ 'bp', 'Whether to print the [bundleDependencies/bundledDependencies]', 'false', true ],
     //optDeps: [ 'op', 'Whether to print the [optionalDependencies]', 'false', true ],
     //peerDeps: [ 'pp', 'Whether to print the [peerDependencies]', 'false', true ],
-    repo:  [ 'r', 'Whether to print the [repository]' ],
-    keywords:  [ 'k', 'Whether to print the [keywords]' ],
-    bin:  [ 'b', 'Whether to print the binary mappings [bin]' ],
-    os:  [ 'o', 'Whether to print the OS support [os]' ],
-    cpu:  [ 'u', 'Whether to print the CPU support [cpu]' ],
-    config:  [ 'c', 'Whether to print the NPM [config]' ],
-    scripts:  [ 'i', 'Whether to print the NPM [scripts]' ],
-    engines:  [ 'g', 'Whether to print the supported [engines]' ]
+    repo: ['r', 'Whether to print the [repository]'],
+    keywords: ['k', 'Whether to print the [keywords]'],
+    bin: ['b', 'Whether to print the binary mappings [bin]'],
+    os: ['o', 'Whether to print the OS support [os]'],
+    cpu: ['u', 'Whether to print the CPU support [cpu]'],
+    config: ['c', 'Whether to print the NPM [config]'],
+    scripts: ['i', 'Whether to print the NPM [scripts]'],
+    engines: ['g', 'Whether to print the supported [engines]']
 };
 
 /**
