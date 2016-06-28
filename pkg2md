@@ -2,12 +2,16 @@
 
 'use strict';
 
-//var constants = require('./lib/constants.js');
-const cli = require('cli');
-const path = require('path');
-const constants = require('./lib/constants');
-const PkgToMd = require('./lib/pkg-to-md.js');
-const pkgToMd = new PkgToMd(cli);
+var cli = require('cli');
+var path = require('path');
+var fs = require('fs');
+var constants = require('./lib/constants');
+var PkgToMd = require('./lib/pkg-to-md');
+var CliLogger = require('./lib/cli-logger');
+
+var commander = require('commander');
+var colors = require('colors');
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // CLI INIT
@@ -18,7 +22,7 @@ const pkgToMd = new PkgToMd(cli);
  * @type {string}
  * @private
  */
-var usage = path.basename(__filename) + ' [PKG-IN-FILE (default: package.json)] [MD-OUT-FILE (default: README.md)] [OPTIONS]';
+var usage = path.basename(__filename) + ' [PKG-IN-FILE (default: package.json)] [MD-OUT-FILE (default: README.md)] [OPTIONS]'; // TODO usage!!!
 
 /**
  * The path to package.json.
@@ -27,104 +31,101 @@ var usage = path.basename(__filename) + ' [PKG-IN-FILE (default: package.json)] 
  */
 var packagePath = __dirname + '/package.json';
 
-/**
- * The options description for parsing the command line input, must be an object with opts defined like:
- * ```
- * long_tag: [short_tag, description, value_type, default_value];
- * ```
- * @type {{origin: *[], target: *[], src: string[], dest: *[], indent: *[], force: string[], imports: string, exports: string}}
- * @private
- */
-var options = {
+var packageData = JSON.parse(fs.readFileSync(packagePath, constants.UTF8));
+var args = [];
+var actionOrder = [];
+commander
+    .version(packageData.version)
+    .description(packageData.description)
 
     // general options
-    title: ['t', 'Another title to use as main headline instead of module [name]', 'string', false],
-    validate: ['a', 'Whether to validate the package.json file on input reading'],
-    headline: ['e', 'The amount of basic headline indention: 1 => #, 2 => ##, ...', 'number', 1],
-    force: ['f', 'Force overwriting of existing output files on write phase: if an existing file is not overwritten (which is default), then the generated Markdown is simply appended'],
+    .option('-I, --pkg <package>', 'the package input file [' + constants.DEFAULT_PKG_FILE + ']', constants.DEFAULT_PKG_FILE)
+    .option('-O, --md <markdown>', 'the Markdown output file [' + constants.DEFAULT_MD_FILE + ']', constants.DEFAULT_MD_FILE)
+    .option('-T, --title <name>', 'another title to use as main headline instead of module \'name\' (single word only!) [name]', packageData.name)
+    .option('-v, --validate', 'whether to validate the package.json file on input reading [false]')
+    .option('-h, --headline <n>', 'the amount of basic headline indention: 1 => #, 2 => ##, ... [1]', 1)
+    .option('-f, --force', 'force overwriting of existing output files on write phase: if an existing file is not overwritten (which is default), then the generated Markdown is simply appended [false]')
+
+    // log options
+    .option('-L, --level <level>', 'log level for CLI output (info|debug|trace|warn|error|fatal) [info]', /^(info|debug|trace|warn|error|fatal)$/i, 'info')
+    .option('-R, --no-color', 'whether to print the log colorized [true]')
+    .option('-S, --silent', 'whether to suppress any log [false]')
 
     // assembled sections
-    tests: ['q', 'Whether to print the test execution section [scripts.test]', 'false', true],
-    inst: ['n', 'Whether to print the installation how to', 'false', true],
-    staff: ['s', 'Whether to print the project\'s staff: [author], [contributors] and [maintainers]'],
+    .option('-t, --tests', 'whether to print the test execution section \'scripts.test\' [false]')
+    .option('-i, --inst', 'whether to print the installation how-to [false]')
 
     // concrete properties
-    desc: ['d', 'Whether to print the [description]', 'false', true],
-    lic: ['l', 'Whether to print the [license]', 'false', true],
-    main: ['m', 'Whether to print the [main] executable file'],
-    ver: [null, 'Whether to print the [version] in title headline'],
-    deps: ['p', 'Whether to print the module library dependencies [dependencies, devDependencies, bundleDependencies/bundledDependencies, optionalDependencies, peerDependencies]', 'false', true],
-    //devDeps: [ 'dp', 'Whether to print the [devDependencies]', 'false', true ],
-    //bundledDeps: [ 'bp', 'Whether to print the [bundleDependencies/bundledDependencies]', 'false', true ],
-    //optDeps: [ 'op', 'Whether to print the [optionalDependencies]', 'false', true ],
-    //peerDeps: [ 'pp', 'Whether to print the [peerDependencies]', 'false', true ],
-    repo: ['r', 'Whether to print the [repository]'],
-    keywords: ['k', 'Whether to print the [keywords]'],
-    bin: ['b', 'Whether to print the binary mappings [bin]'],
-    os: ['o', 'Whether to print the OS support [os]'],
-    cpu: ['u', 'Whether to print the CPU support [cpu]'],
-    config: ['c', 'Whether to print the NPM [config]'],
-    scripts: ['i', 'Whether to print the NPM [scripts]'],
-    engines: ['g', 'Whether to print the supported [engines]']
-};
+    .option('-s, --staff', 'whether to print the project\'s staff: \'author\', \'contributors\' and \'maintainers\' [false]')
+    .option('-D, --no-desc', 'whether to print the \'description\' [true]')
+    .option('-l, --lic', 'whether to print the \'license\' [false]')
+    .option('-m, --main', 'whether to print the \'main\' executable file [false]')
+    .option('--no-ver', 'whether to print the \'version\' in title headline [true]')
+    .option('-d, --deps', 'whether to print the module library dependencies: \'dependencies\', \'devDependencies\', \'bundle(d)Dependencies\', \'optionalDependencies\', \'peerDependencies\' [false]')
+    .option('-r, --repo', 'whether to print the \'repository\' [false]')
+    .option('-k, --keywords', 'whether to print the \'keywords\' [false]')
+    .option('-b, --bin', 'whether to print the binary mappings \'bin\' [false]')
+    .option('-o, --os', 'whether to print the OS support \'os\' [false]')
+    .option('-c, --cpu', 'whether to print the CPU support \'cpu\' [false]')
+    .option('-C, --config', 'whether to print the NPM \'config\' [false]')
+    .option('-S, --scripts', 'whether to print the NPM \'scripts\' [false]')
+    .option('-e, --engines', 'whether to print the supported \'engines\' [false]')
 
-/**
- * The main entry callback. When calling cli.main() this receives the `args`
- * and `options` given on CLI, does the transformation with these options
- * and prints the result to the CLI.
- * @param {object} args    - The first (optional) argument is the input file
- *                           (`args[0]`), the second (optional) argument is the
- *                           output file (`args[0]`).
- * @param {object} options - The options set on CLI.
- * @private
- */
-function mainCb(args, options) {
+    // special treatment for headline parsing, because commander does not allow
+    // all 4 args in option() call (3rd arg is either a parse function or default value!)
+    .on('headline', function (arg) {
+        console.log('ARG headline PARSED: ' + arg);
+        commander.headline = parseInt(arg);
+    });
 
-    // CLI debug
+// .on('tests', createOrderEventHandler('tests'))
+// .on('inst', createOrderEventHandler('inst'))
+// .on('staff', createOrderEventHandler('staff'))
 
-    cli.debug('application: ' + cli.app);
-    cli.debug('parsed args: ' + JSON.stringify(args, null, 4));
-    cli.debug('parsed options: ' + JSON.stringify(options, null, 4));
-    cli.debug('raw process args: ' + JSON.stringify(process.argv, null, 4));
+registerOrderEvents(['tests', 'inst', 'staff', 'lic', 'main', 'deps', 'keywords', 'bin', 'os', 'cpu', 'config', 'scripts', 'engines']);
+commander.parse(process.argv);
 
-    // read file args and set to options
-
-    if (args.length > 0) {
-        cli.debug('input file: ' + args[0]);
-        options.pkg = args[0];
-    } else {
-        options.pkg = constants.DEFAULT_PKG_FILE;
-        cli.debug('input file not specified, using default: ' + options.pkg);
-    }
-    if (args.length > 1) {
-        cli.debug('output file: ' + args[1]);
-        options.md = args[1];
-    } else {
-        options.md = constants.DEFAULT_MD_FILE;
-        cli.debug('output file not specified, using default: ' + options.md);
-    }
-
-    // write MD
-
-    return pkgToMd.writeMarkdown(options)
-        .then(function (msg) {
-            cli.info(msg);
-        })
-        .catch(function (err) {
-            cli.error('////////////////////////////////////////////////////////////////////////////////');
-            cli.error(err.stack);
-            cli.error('////////////////////////////////////////////////////////////////////////////////');
-            cli.getUsage(1);
-        });
+function registerOrderEvents(argNames) {
+    argNames.forEach(function (argName) {
+        commander.on(argName, createOrderEventHandler(argName))
+    });
 }
 
-/**
- * Init the CLI instance.
- */
-cli.width = 120;
-cli.option_width = cli.option_width + 6;
-cli.setUsage(usage);
-cli.setApp(packagePath);
-cli.enable('version', 'status', 'timeout');
-cli.parse(options);
-cli.main(mainCb);
+function createOrderEventHandler(argName) {
+    return function (argValue) {
+        console.log('ARG ' + argName + ' PARSED: ' + argValue);
+        actionOrder.push(argName);
+    }
+}
+
+var cliLogger = new CliLogger({
+    level: commander.level,
+    noColor: !commander.color,
+    silent: commander.silent
+});
+
+//console.log('OPTIONS::: ' + JSON.stringify(commander.options, null, 4));
+
+
+cliLogger.trace('ORDER::: ' + JSON.stringify(actionOrder, null, 4));
+
+// if (!process.argv.slice(2).length) {
+//     commander.outputHelp(makeRed);
+// }
+
+// function makeRed(txt) {
+//     return colors.red(txt); //display the help text in red on the console
+// }
+
+// write MD
+var pkgToMd = new PkgToMd(cliLogger);
+pkgToMd.writeMarkdown(commander, actionOrder)
+    .then(function (msg) {
+        cliLogger.info(msg);
+    })
+    .catch(function (err) {
+        cliLogger.error('////////////////////////////////////////////////////////////////////////////////');
+        cliLogger.error(err.stack);
+        cliLogger.error('////////////////////////////////////////////////////////////////////////////////');
+        commander.outputHelp(makeRed);
+    });
