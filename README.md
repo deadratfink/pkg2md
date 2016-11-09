@@ -1,124 +1,26 @@
-<!-- ![pkg2md logo](https://github.com/deadratfink/pkg2md/blob/master/image/pkg2md.png) -->
-
-# Stats
-
-## General
-
-| [Github License](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md) | [Github Issues](https://github.com/deadratfink/pkg2md/issues) | [Github Release](https://github.com/deadratfink/pkg2md/releases) | [Github Tags](https://github.com/deadratfink/pkg2md/tags) | [Travis CI](https://travis-ci.org) | [Waffle](https://waffle.io/deadratfink/pkg2md) | [Code Climate](https://codeclimate.com/github/deadratfink/pkg2md) |
-| --- | --- | --- | --- | --- | --- | --- |
-| [![License][gh-license-image]][gh-license-url] | [![Issue Stats][gh-issues-image]][gh-issues-url] | [![Github Releases][gh-releases-image]][gh-releases-url] | [![Github Tags][gh-tags-image]][gh-tags-url] | [![Build Status][ci-image]][ci-url] | [![Waffle][waffle-image]][waffle-url] | [![Code Climate][cocl-image]][cocl-url] |
-
-## Branches
-
-| Branch | [Codecov](https://codecov.io) | [Coveralls](https://coveralls.io) | [Inch CI](http://inch-ci.org) | [David](https://david-dm.org) DM | [David](https://david-dm.org) DM (dev) |
-| --- | --- | --- | --- | --- | --- |
-| master | [![codecov.io][cc-image-master]][cc-url-master]                | [![coveralls.io][ca-image-master]][ca-url-master]           | [![inch-ci.org][inch-image-master]][inch-url-master]           | [![Dependency Status][dep-image-master]][dep-url-master]           | [![devDependency Status][devdep-image-master]][devdep-url-master] |
-| develop | [![codecov.io][cc-image-development]][cc-url-development] | [![coveralls.io][ca-image-development]][ca-url-development] | [![inch-ci.org][inch-image-development]][inch-url-development] | [![Dependency Status][dep-image-development]][dep-url-development] | [![devDependency Status][devdep-image-development]][devdep-url-development] |
-
-<!--
-### Coverage Graphs
-
-| Branch | Graph |
-| --- | --- |
-| master | ![codecov.io](https://codecov.io/github/deadratfink/pkg2md/branch.svg?branch=master&vg=true) |
-| develop| ![codecov.io](https://codecov.io/github/deadratfink/pkg2md/branch.svg?branch=develop&vg=true) | -->
-
-<!--
-## NPM
-
-[![NPM](https://nodei.co/npm/pkg2md.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pkg2md/)
-[![NPM](https://nodei.co/npm-dl/pkg2md.png?height=3&months=9)](https://nodei.co/npm-dl/pkg2md/)
--->
-[gh-license-image]: https://img.shields.io/github/license/deadratfink/pkg2md.svg?style=flat-square
-[gh-license-url]: https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md
-
-[gh-issues-image]: https://img.shields.io/github/issues/deadratfink/pkg2md.svg?style=flat-square
-[gh-issues-url]: https://github.com/deadratfink/pkg2md/issues
-
-[gh-releases-image]: https://img.shields.io/github/release/deadratfink/pkg2md.svg?style=flat-square
-[gh-releases-url]: https://github.com/deadratfink/pkg2md/releases
-
-[gh-tags-image]: https://img.shields.io/github/tag/deadratfink/pkg2md.svg?style=flat-square
-[gh-tags-url]: https://github.com/deadratfink/pkg2md/tags
-
-
-[ci-image]: https://img.shields.io/travis/deadratfink/pkg2md.svg?style=flat-square
-[ci-url]: https://travis-ci.org/deadratfink/pkg2md/branches
-
-[is-pull-image]: http://issuestats.com/github/deadratfink/pkg2md/badge/pr?style=flat-square
-[is-issue-image]: http://issuestats.com/github/deadratfink/pkg2md/badge/issue?style=flat-square
-[is-url]: http://issuestats.com/github/deadratfink/pkg2md
-
-[waffle-image]: https://badge.waffle.io/deadratfink/pkg2md.png?label=ready&title=Ready&style=flat-square
-[waffle-url]: https://waffle.io/deadratfink/pkg2md
-
-[cocl-image]: https://img.shields.io/codeclimate/github/deadratfink/pkg2md.svg?style=flat-square
-[cocl-url]: https://codeclimate.com/github/deadratfink/pkg2md
-
-
-[cc-image-master]: https://img.shields.io/codecov/c/github/deadratfink/pkg2md/master.svg?style=flat-square
-[cc-url-master]: https://codecov.io/github/deadratfink/pkg2md?branch=master
-[cc-image-development]: https://img.shields.io/codecov/c/github/deadratfink/pkg2md/develop.svg?style=flat-square
-[cc-url-development]: https://codecov.io/github/deadratfink/pkg2md?branch=develop
-
-[ca-image-master]: https://img.shields.io/coveralls/deadratfink/pkg2md/master.svg?style=flat-square
-[ca-url-master]: https://coveralls.io/github/deadratfink/pkg2md?branch=master
-[ca-image-development]: https://img.shields.io/coveralls/deadratfink/pkg2md/develop.svg?style=flat-square
-[ca-url-development]: https://coveralls.io/github/deadratfink/pkg2md?branch=develop
-
-
-[inch-image-master]: https://inch-ci.org/github/deadratfink/pkg2md.svg?branch=master&style=flat-square
-[inch-url-master]: https://inch-ci.org/github/deadratfink/pkg2md?branch=master
-[inch-image-development]: https://inch-ci.org/github/deadratfink/pkg2md.svg?branch=develop&style=flat-square
-[inch-url-development]: https://inch-ci.org/github/deadratfink/pkg2md?branch=develop
-
-[dep-image-master]: https://img.shields.io/david/deadratfink/pkg2md/master.svg?style=flat-square
-[dep-url-master]: https://david-dm.org/deadratfink/pkg2md/master
-[dep-image-development]: https://img.shields.io/david/deadratfink/pkg2md/develop.svg?style=flat-square
-[dep-url-development]: https://david-dm.org/deadratfink/pkg2md/develop
-
-[devdep-image-master]: https://img.shields.io/david/dev/deadratfink/pkg2md/master.svg?style=flat-square
-[devdep-url-master]: https://david-dm.org/deadratfink/pkg2md/master#info=devDependencies
-[devdep-image-development]: https://img.shields.io/david/dev/deadratfink/pkg2md/develop.svg?style=flat-square
-[devdep-url-development]: https://david-dm.org/deadratfink/pkg2md/develop#info=devDependencies
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-# TOC
-
-- [pkg2md](#pkg2md)
-  - [Installation](#installation)
-  - [Repository](#repository)
-  - [Dependencies](#dependencies)
-  - [Development Dependencies](#development-dependencies)
-  - [Test](#test)
-  - [Collaborators](#collaborators)
-  - [Keywords](#keywords)
-  - [NPM Configuration](#npm-configuration)
-  - [NPM Scripting](#npm-scripting)
-  - [Main File](#main-file)
-  - [Binary Mappings](#binary-mappings)
-  - [License](#license)
-- [Motivation](#motivation)
-- [Usage](#usage)
-  - [Usage Types](#usage-types)
-  - [Use Case](#use-case)
-  - [Limitations](#limitations)
-  - [CLI Usage](#cli-usage)
-  - [Using Custom Logger](#using-custom-logger)
-- [API Reference](#api-reference)
-- [Contributing](#contributing)
-- [Changelog](#changelog)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# [pkg2md](https://github.com/deadratfink/pkg2md)
+# [pkg2md (v0.9.0)](https://github.com/deadratfink/pkg2md)
 
 This modules creates a Markdown presentation from a package.json on CLI or API.
 
+## Binary Mappings
+
+- `$ pkg2md` ⇒ _./pkg2md_
+
+## NPM Configuration
+
+| Property (flattened) | Value | Applicable in `scripts` Section  |
+| --- | --- | --- |
+| `test.istanbul.report` | _lcovonly_ | `$npm_package_config_test_istanbul_report`|
+| `test.mocha.reporter` | _spec_ | `$npm_package_config_test_mocha_reporter`|
+
+
+## Keywords
+
+_api_, _cli_, _convert_, _markdown_, _md_, _package_, _package.json_, _pkg_, _pkg-to-md_, _pkg2md_, _pkgtomd_, _promise_, _readme_, _readme.md_, _transform_
+
 ## Installation
 
-Download node.js at [nodejs.org](https://nodejs.org) and install it, if you haven't already. Ensure the proper registry setting before `npm install`:
+Download [node.js](https://nodejs.org) and install it, if you haven't already. Ensure the proper registry setting before `npm install`:
 
 ```sh
 $ npm config set registry https://registry.npmjs.org/
@@ -126,11 +28,15 @@ $ npm config set registry https://registry.npmjs.org/
 
 #### Global (Preferred)
 
+Install as system library:
+
 ```sh
 $ npm install pkg2md --global
 ```
 
 #### Local
+
+As `dependency`:
 
 ```sh
 $ npm install pkg2md --save
@@ -146,37 +52,30 @@ $ npm install pkg2md --save-dev
 
 | Type | Link  |
 | --- | --- |
-| git | https://github.com/deadratfink/pkg2md |
+| Github - Repo | https://github.com/deadratfink/pkg2md |
+| Github - Clone | https://github.com/deadratfink/pkg2md |
+| Github - Tarball | https://api.github.com/repos/deadratfink/pkg2md/tarball/master |
+| Github - Zip | https://github.com/deadratfink/pkg2md/archive/master.zip |
+| Github - API | https://api.github.com/repos/deadratfink/pkg2md |
 
-## Dependencies
+## Main File
 
-- [ajv](https://github.com/epoberezkin/ajv): Another JSON Schema Validator
-- [bluebird](https://github.com/petkaantonov/bluebird): Full featured Promises/A+ implementation with exceptionally good performance
-- [cli](https://github.com/node-js-libs/cli): A tool for rapidly building command line apps
-- [cwd](https://github.com/jonschlinkert/cwd): Easily get the CWD (current working directory) of a project based on package.json, optionally starting from a given path. (Node.js/javascript util)
-- [flat](https://github.com/hughsk/flat): Take a nested Javascript object and flatten it, or unflatten an object with delimited keys
-- [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
-- [is-stream](https://github.com/sindresorhus/is-stream): Check if something is a Node.js stream
-- [json-stringify-safe](https://github.com/isaacs/json-stringify-safe): Like JSON.stringify, but doesn't blow up on circular refs.
-- [mkdirp-then](https://github.com/fs-utils/mkdirp-then): mkdirp as promised
-- [package.json-schema](https://github.com/Bartvds/package.json-schema): JSON Schema for node/npm package.json
-- [url-join](https://github.com/jfromaniello/url-join): Join urls and normalize as in path.join.
+- _./index.js_
 
-## Development Dependencies
+## Collaborators
 
-- [codeclimate-test-reporter](https://github.com/codeclimate/javascript-test-reporter): Code Climate test reporter client for javascript projects
-- [codecov](https://github.com/codecov/codecov-node): Uploading report to Codecov: https://codecov.io
-- [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
-- [doctoc](https://github.com/thlorenz/doctoc): Generates TOC for markdown files of local git repo.
-- [fs-extra](https://github.com/jprichardson/node-fs-extra): fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as mkdir -p, cp -r, and rm -rf.
-- [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests 
-- [jsdoc-parse](https://github.com/jsdoc2md/jsdoc-parse): Jsdoc-annotated source code in, JSON format documentation out.
-- [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown): jsdoc-annotated source in, markdown API docs out.
-- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
-- [mocha-lcov-reporter](https://github.com/StevenLooman/mocha-lcov-reporter): LCOV reporter for Mocha
-- [object-path](https://github.com/mariocasciaro/object-path): Access deep properties using a path
-- [package-json-to-readme](https://github.com/zeke/package-json-to-readme): Generate a README.md from package.json contents
-- [winston](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
+| Role | Name | Email  |
+| --- | --- | --- |
+| Author | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
+## NPM Scripting
+
+| Run Command | Script Executed  |
+| --- | --- |
+| `$ npm run docs` | `cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md --force --bin --cpu --os --config --keywords --inst --repo --main --staff --scripts -L trace -t --deps && cat docs/USAGE.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2` |
+| `$ npm run test` | `istanbul cover _mocha --report $npm_package_config_test_istanbul_report -- -R $npm_package_config_test_mocha_reporter ./test/test-*.js` |
+| `$ npm run test:html` | `istanbul cover _mocha --report html -- -R $npm_package_config_test_mocha_reporter ./test/test-*.js` |
+| `$ npm run wiki` | `jsdoc2md -P lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3` |
+
 
 ## Test
 
@@ -187,44 +86,34 @@ $ npm install
 $ npm test
 ```
 
-## Collaborators
+## Dependencies
 
-| Role | Name | Email  |
-| --- | --- | --- |
-| Author | [Jens Krefeldt](https://github.com/deadratfink) | [j.krefeldt@gmail.com](mailto:j.krefeldt@gmail.com?subject=pkg2md) |
-## Keywords
+- [ajv (^4.0.5)](https://github.com/epoberezkin/ajv): Another JSON Schema Validator
+- [bluebird (^3.3.3)](https://github.com/petkaantonov/bluebird): Full featured Promises/A+ implementation with exceptionally good performance
+- [commander (^2.9.0)](https://github.com/tj/commander.js): the complete solution for node.js command-line programs
+- [cwd (^0.10.0)](https://github.com/jonschlinkert/cwd): Easily get the CWD (current working directory) of a project based on package.json, optionally starting from a given path. (node.js/javascript util)
+- [flat (^2.0.0)](https://github.com/hughsk/flat): Take a nested Javascript object and flatten it, or unflatten an object with delimited keys
+- [github-url-to-object (^2.2.1)](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
+- [is-stream (^1.0.1)](https://github.com/sindresorhus/is-stream): Check if something is a Node.js stream
+- [json-stringify-safe (^5.0.1)](https://github.com/isaacs/json-stringify-safe): Like JSON.stringify, but doesn't blow up on circular refs.
+- [mkdirp-then (^1.2.0)](https://github.com/fs-utils/mkdirp-then): mkdirp as promised
+- [normalize-package-data (^2.3.5)](https://github.com/npm/normalize-package-data): Normalizes data that can be found in package.json files.
+- [package.json-schema (^0.2.0)](https://github.com/Bartvds/package.json-schema): JSON Schema for node/npm package.json
+- [url-join (^1.1.0)](https://github.com/jfromaniello/url-join): Join urls and normalize as in path.join.
+- [winston (^2.2.0)](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
 
-_api_, _cli_, _convert_, _markdown_, _md_, _package_, _package.json_, _pkg_, _pkg-to-md_, _pkg2md_, _pkgtomd_, _promise_, _readme_, _readme.md_, _transform_
+## Development Dependencies
 
-## NPM Configuration
-
-| Property (flattened) | Value | Applicable in `scripts` Section  |
-| --- | --- | --- |
-| `test.istanbul.report` | _lcovonly_ | `$npm_package_config_test_istanbul_report`|
-| `test.mocha.reporter` | _spec_ | `$npm_package_config_test_mocha_reporter`|
-
-
-## NPM Scripting
-
-| Run Command | Script Executed  |
-| --- | --- |
-| `$ npm run docs` | `cat docs/LOGO.md > README.md && cat docs/BADGES.md >> README.md && cat docs/TOC.md >> README.md && ./pkg2md -b -c -o -k -s -r -m -i && cat docs/USAGE.md >> README.md && doctoc README.md --github --title '# TOC' --maxlevel 2` |
-| `$ npm run test` | `istanbul cover _mocha --report $npm_package_config_test_istanbul_report -- -R $npm_package_config_test_mocha_reporter ./test/test-*.js` |
-| `$ npm run test:html` | `istanbul cover _mocha --report html -- -R $npm_package_config_test_mocha_reporter ./test/test-*.js` |
-| `$ npm run wiki` | `jsdoc2md -P lib/*.js index.js > docs/API.md && doctoc docs/API.md --github --title '### TOC' --maxlevel 2 && cat docs/API.md > '../pkg2md.wiki/API-v1.md'&& cat docs/CONTRIBUTING.md > ../pkg2md.wiki/Contributing.md  && cat docs/CHANGELOG.md > ../pkg2md.wiki/Changelog.md && doctoc ../pkg2md.wiki/Changelog.md --github --title '### TOC' --maxlevel 3` |
-
-
-## Main File
-
-- _./index.js_
-
-## Binary Mappings
-
-- `$ pkg2md` ⇒ _./pkg2md_
-
-## License
-
-SEE LICENSE IN [LICENSE.md](https://github.com/deadratfink/pkg2md/blob/master/LICENSE.md)
+- [codeclimate-test-reporter (^0.3.1)](https://github.com/codeclimate/javascript-test-reporter): Code Climate test reporter client for javascript projects
+- [codecov (^1.0.1)](https://github.com/codecov/codecov-node): Uploading report to Codecov: https://codecov.io
+- [coveralls (^2.11.9)](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
+- [doctoc (^1.0.0)](https://github.com/thlorenz/doctoc): Generates TOC for markdown files of local git repo.
+- [fs-extra (^0.30.0)](https://github.com/jprichardson/node-fs-extra): fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as mkdir -p, cp -r, and rm -rf.
+- [istanbul (^0.4.2)](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
+- [jsdoc-parse (^1.2.7)](https://github.com/jsdoc2md/jsdoc-parse): Jsdoc-annotated source code in, JSON format documentation out.
+- [jsdoc-to-markdown (^1.3.3)](https://github.com/jsdoc2md/jsdoc-to-markdown): jsdoc-annotated source in, markdown API docs out.
+- [mocha (^2.3.4)](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [mocha-lcov-reporter (^1.2.0)](https://github.com/StevenLooman/mocha-lcov-reporter): LCOV reporter for Mocha
 
 # Motivation
 
@@ -300,8 +189,16 @@ as follows:
 to locate the position where to insert the TOC:
 
 ```html
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# TOC
+
+  - [Using Custom Logger](#using-custom-logger)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [Changelog](#changelog)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 ```
